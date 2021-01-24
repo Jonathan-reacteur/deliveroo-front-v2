@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./components/Header.js";
+import retrieveRestaurantInfo from "./service/retrieveRestaurantInfo.js";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    const fetchDatas = async () => {
+      const response = await retrieveRestaurantInfo();
+      setData(response.data);
+    };
+
+    fetchDatas();
+  }, []);
+  console.log(data);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await axios.get(
+  //       "https://lereacteur-deliveroo-api.herokuapp.com"
+  //     );
+
+  //     setData(response.data);
+  //   };
+
+  //   fetchData();
+  //    }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <Header restaurant={data ? data.restaurant : null} />
+      </div>
+    </>
   );
 }
 
