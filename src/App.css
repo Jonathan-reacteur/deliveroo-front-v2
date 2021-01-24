@@ -70,43 +70,54 @@ body {
 /*                                         /
 /                 MENU                     /
 /                                         */
-.content {
+
+.greyBlack {
   background-color: #f3f5f5;
 }
-.contentCenter {
+.wrapper {
   margin: 0 auto;
-  width: 96vw;
   max-width: 1200px;
+}
+.restaurantDetails {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
 }
-.menu {
-  flex: 1;
-  margin-right: 30px;
-  margin-bottom: -25px;
-}
-.courseItems {
+.basket {
+  width: 350px;
   display: flex;
+  flex-shrink: 0;
+}
+.meals {
+  display: flex;
+  flex: 1 1;
+  flex-direction: column;
+}
+.course {
+  display: flex;
+  flex-direction: column;
+}
+.courseListeItem {
   flex-wrap: wrap;
+  display: flex;
   flex-direction: row;
-  padding-left: 20px;
-  padding-right: 20px;
-  width: 50%;
+  justify-content: space-around;
+  align-items: stretch;
 }
 .courseItem {
-  background-color: white;
-  border-radius: 6px;
-  width: 50%;
-  padding: 0 10px;
-  padding-bottom: 25px;
-  height: 160px;
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  width: 400px;
 }
-.courseTitle {
-  color: #2e3333;
-  font-size: 24px;
-  line-height: 20px;
-  font-weight: bold;
+
+.courseItem img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+.prixCat {
+  display: flex;
+  flex-direction: row;
 }
 
 .courseTitle h2 {
@@ -117,7 +128,7 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
+/* 
 .courseItemTitle {
   color: #2f3434;
   font-size: 18px;
@@ -134,8 +145,4 @@ body {
   font-size: 17px;
   line-height: 14.7px;
   font-weight: regular;
-}
-.zoneCard {
-  width: 350px;
-  flex: 1;
-}
+} */

@@ -7,16 +7,32 @@ const Menu = (props) => {
   }
 
   return (
-    <div className="content">
-      <div className="contentCenter">
-        <div className="menu">
-          {categories.map((elem, index) => {
-            return <Courses key={index} name={elem.name} items={elem.meals} />;
-          })}
+    <div className="greyBlack">
+      <div className="wrapper">
+        <div className="restaurantDetails">
+          <div className="meals">
+            {categories.map((elem, index) => {
+              return (
+                <Courses key={index} name={elem.name} items={elem.meals} />
+              );
+            })}
+          </div>
+          <div className="basket">test</div>
         </div>
-        <div className="zoneCard"></div>
       </div>
     </div>
+
+    // <div className="greyBlack">
+    //   <div className="wrapper">
+    //     <div className="restaurantDetails">
+    //       test2
+    //       {categories.map((elem, index) => {
+    //         return <Courses key={index} name={elem.name} items={elem.meals} />;
+    //       })}
+    //     </div>
+    //     <div className="basket">test</div>
+    //   </div>
+    // </div>
   );
 };
 
