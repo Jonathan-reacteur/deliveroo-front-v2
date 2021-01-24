@@ -1,5 +1,7 @@
 import "./App.css";
 import Header from "./components/Header.js";
+import Menu from "./components/Menu.js";
+import MenuLoader from "./components/MenuLoader.js";
 import retrieveRestaurantInfo from "./service/retrieveRestaurantInfo.js";
 import { useState, useEffect } from "react";
 
@@ -14,22 +16,31 @@ function App() {
 
     fetchDatas();
   }, []);
-  console.log(data);
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await axios.get(
-  //       "https://lereacteur-deliveroo-api.herokuapp.com"
-  //     );
+  let isLoaded = false;
+  if (data) {
+    isLoaded = true;
+  }
 
-  //     setData(response.data);
-  //   };
+  let restaurant = {};
+  let categories = {};
+  // Props pour bandeau :
+  if (data) {
+    restaurant = data.restaurant;
+    categories = data.categories;
+  }
 
-  //   fetchData();
-  //    }, []);
+  const affichageMenu = () => {
+    if (isLoaded) {
+      return <Menu categories={categories} />;
+    } else {
+      return <MenuLoader />;
+    }
+  };
   return (
     <>
       <div className="App">
-        <Header restaurant={data ? data.restaurant : null} />
+        <Header restaurant={restaurant} />
+        {affichageMenu()}
       </div>
     </>
   );

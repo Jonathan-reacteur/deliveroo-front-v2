@@ -25,7 +25,7 @@ const Header = (props) => {
 
   return (
     <>
-      <div className="Header">
+      <div className="header">
         <div>{isRestaurantNull ? "zer" : "coucou"}</div>
         <Bandeau />
         {renderRestaurant(restaurant)}

@@ -1,18 +1,24 @@
-/*GENERAL */
+/*                                         /
+/               GENERAL                    /
+/                                         */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #f3f5f5;
   color: #2e3333;
 }
 * {
   box-sizing: border-box;
 }
-
-/* BANDEAU SUPERIEUR DU HEADER*/
+/*                                         /
+/      BANDEAU SUPERIEUR DU HEADER         /
+/                                         */
+.header {
+  padding-left: 12px;
+  padding-right: 12px;
+}
 .Bandeau {
   background-color: var(--main-bg-color);
 }
@@ -28,8 +34,9 @@ body {
 .logo {
   height: 55px;
 }
-
-/* PARTIE RESTAURANT*/
+/*                                         /
+/               RESTAURANT                 /
+/                                         */
 .restaurantCenter {
   margin: 0 auto;
   margin-top: 40px;
@@ -59,4 +66,76 @@ body {
   width: 350px;
   height: 200px;
   border-radius: 10px;
+}
+/*                                         /
+/                 MENU                     /
+/                                         */
+.content {
+  background-color: #f3f5f5;
+}
+.contentCenter {
+  margin: 0 auto;
+  width: 96vw;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.menu {
+  flex: 1;
+  margin-right: 30px;
+  margin-bottom: -25px;
+}
+.courseItems {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 50%;
+}
+.courseItem {
+  background-color: white;
+  border-radius: 6px;
+  width: 50%;
+  padding: 0 10px;
+  padding-bottom: 25px;
+  height: 160px;
+}
+.courseTitle {
+  color: #2e3333;
+  font-size: 24px;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+.courseTitle h2 {
+  color: #2e3333;
+  font-size: 24px;
+  line-height: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.courseItemTitle {
+  color: #2f3434;
+  font-size: 18px;
+  line-height: 15.6px;
+  font-weight: bold;
+}
+.courseItemDescription {
+  color: #808484;
+  font-size: 14px;
+  line-height: 20.8px;
+}
+.courseItemZonePrix {
+  color: #808484;
+  font-size: 17px;
+  line-height: 14.7px;
+  font-weight: regular;
+}
+.zoneCard {
+  width: 350px;
+  flex: 1;
 }
