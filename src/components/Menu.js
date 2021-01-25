@@ -1,6 +1,7 @@
-import Courses from "./Courses";
+import Courses from "./Courses.js";
+import Cart from "./Cart.js";
 const Menu = (props) => {
-  const { categories } = props;
+  const { categories, setCart, cart } = props;
   if (props) {
     console.log(props);
     console.log(categories[0].name);
@@ -13,26 +14,20 @@ const Menu = (props) => {
           <div className="meals">
             {categories.map((elem, index) => {
               return (
-                <Courses key={index} name={elem.name} items={elem.meals} />
+                <Courses
+                  key={index}
+                  name={elem.name}
+                  items={elem.meals}
+                  setCart={setCart}
+                  cart={cart}
+                />
               );
             })}
           </div>
-          <div className="basket">test</div>
+          <Cart className="basket" cart={cart} setCart={setCart}></Cart>
         </div>
       </div>
     </div>
-
-    // <div className="greyBlack">
-    //   <div className="wrapper">
-    //     <div className="restaurantDetails">
-    //       test2
-    //       {categories.map((elem, index) => {
-    //         return <Courses key={index} name={elem.name} items={elem.meals} />;
-    //       })}
-    //     </div>
-    //     <div className="basket">test</div>
-    //   </div>
-    // </div>
   );
 };
 

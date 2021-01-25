@@ -7,7 +7,13 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [data, setData] = useState();
-
+  const itemTest = {
+    priceItem: 30,
+    idItem: "azeaze",
+    libItem: "Baguette de pain gratuite",
+    quantity: 1,
+  };
+  const [cart, setCart] = useState([itemTest]);
   useEffect(() => {
     const fetchDatas = async () => {
       const response = await retrieveRestaurantInfo();
@@ -31,7 +37,7 @@ function App() {
 
   const affichageMenu = () => {
     if (isLoaded) {
-      return <Menu categories={categories} />;
+      return <Menu categories={categories} setCart={setCart} cart={cart} />;
     } else {
       return <MenuLoader />;
     }

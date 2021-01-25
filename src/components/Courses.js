@@ -1,7 +1,19 @@
 import currencyFormatter from "../utils/currencyFormatter";
 
+import { useState, useEffect } from "react";
+import ajoutItemCart from "../service/ajoutItemCart.js";
 const Courses = (props) => {
-  const { key, name, items } = props;
+  const { key, name, items, setCart, cart } = props;
+
+  const onClickAddItem = (priceItem, idItem, libItem) => {
+    let itemToAdd = {};
+    itemToAdd.priceItem = priceItem;
+    itemToAdd.idItem = idItem;
+    itemToAdd.libItem = libItem;
+    let result = [];
+    result = ajoutItemCart(cart, itemToAdd);
+    setCart(result);
+  };
   console.log(key);
   console.log(name);
   console.log(items);
@@ -15,39 +27,30 @@ const Courses = (props) => {
             <h2>{name}</h2>
           </div>
           <div className="courseListeItem">
-            <div className="courseItem">
-              <div className="courseItemText">
-                <p>Brunch pour tous</p>
-                <p>assiette de jambon cuit</p>
-                <div className="prixCat">
-                  <p>25Euros</p>
-                  <p>populaire</p>
+            {items.map((elem, index) => {
+              return (
+                <div
+                  className="courseItem"
+                  onClick={(e) => {
+                    onClickAddItem(elem.price, elem.id, elem.title);
+                  }}
+                >
+                  <div className="courseItemText">
+                    <div className="courseItemTitle">{elem.title}</div>
+                    <div className="courseItemDescription">
+                      {elem.description}
+                    </div>
+                    <div className="prixCat">
+                      <div className="courseItemZonePrix">
+                        {currencyFormatter(elem.price)}
+                      </div>
+                      <div className>{elem.popular}</div>
+                    </div>
+                  </div>
+                  {elem.picture ? <img src={elem.picture}></img> : <div></div>}
                 </div>
-              </div>
-              <img src="https://f.roocdn.com/images/menu_items/1583350/item-image.jpg"></img>
-            </div>
-            <div className="courseItem">
-              <div className="courseItemText">
-                <p>Brunch pour tous</p>
-                <p>assiette de jambon cuit</p>
-                <div className="prixCat">
-                  <p>25Euros</p>
-                  <p>populaire</p>
-                </div>
-              </div>
-              <img src="https://f.roocdn.com/images/menu_items/1583350/item-image.jpg"></img>
-            </div>
-            <div className="courseItem">
-              <div className="courseItemText">
-                <p>Brunch pour tous</p>
-                <p>assiette de jambon cuit</p>
-                <div className="prixCat">
-                  <p>25Euros</p>
-                  <p>populaire</p>
-                </div>
-              </div>
-              <img src="https://f.roocdn.com/images/menu_items/1583350/item-image.jpg"></img>
-            </div>
+              );
+            })}
           </div>
 
           {/* <div className="courseItems">
