@@ -1,6 +1,5 @@
 import currencyFormatter from "../utils/currencyFormatter";
 
-import { useState, useEffect } from "react";
 import ajoutItemCart from "../service/ajoutItemCart.js";
 const Courses = (props) => {
   const { key, name, items, setCart, cart } = props;
@@ -47,30 +46,15 @@ const Courses = (props) => {
                       <div className>{elem.popular}</div>
                     </div>
                   </div>
-                  {elem.picture ? <img src={elem.picture}></img> : <div></div>}
+                  {elem.picture ? (
+                    <img alt="element manquant" src={elem.picture}></img>
+                  ) : (
+                    <></>
+                  )}
                 </div>
               );
             })}
           </div>
-
-          {/* <div className="courseItems">
-            {items.map((elem, index) => {
-              return (
-                <>
-                  <div className="courseItem">
-                    <div className="courseItemTitle">{elem.title}</div>
-                    <div className="courseItemDescription">
-                      {elem.description}
-                    </div>
-                    <div className="courseItemZonePrix">
-                      <div className>{currencyFormatter(elem.price)}</div>
-                      <div className>{elem.popular}</div>
-                    </div>
-                  </div>
-                </>
-              );
-            })}
-          </div> */}
         </div>
       </>
     );

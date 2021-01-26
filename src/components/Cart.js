@@ -19,7 +19,7 @@ const Cart = (props) => {
                 <div>{elem.quantity}</div>
                 <button className="button add"> + </button>
                 <div>{elem.libItem}</div>
-                <div>{elem.price}</div>
+                <div> - {elem.priceItem * elem.quantity} €</div>
               </div>
             );
           })}

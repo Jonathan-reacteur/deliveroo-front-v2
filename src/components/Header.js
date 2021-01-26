@@ -4,7 +4,7 @@ import RestaurantLoader from "./RestaurantLoader.js";
 
 const Header = (props) => {
   const { restaurant } = props;
-  const isRestaurantNull = restaurant === null;
+
   //
   // Rendering de l'encart Restaurant conditionné à la réception des données
   //
@@ -26,7 +26,6 @@ const Header = (props) => {
   return (
     <>
       <div className="header">
-        <div>{isRestaurantNull ? "zer" : "coucou"}</div>
         <Bandeau />
         {renderRestaurant(restaurant)}
       </div>
